@@ -25,11 +25,20 @@ pacman -S grub efibootmgr mtools dosfstools xdg-user-dirs xdg-utils --noconfirm 
 grub-install --target=i386-pc $disk
 grub-mkconfig -o /boot/grub/grub.cfg
 
+pacman -S networkmanager xdg-utils xdg-user-dirs --needed --noconfirm
+systemctl enable --now NetworkManager.service
+
+
 useradd -mG wheel,audio,video,optical,tty,network,storage $username
 echo "password for user"
 passwd $username
 
 echo "password for root"
 passwd
+
+
+echo "root ALL=(ALL) ALL" > /etc/sudoers
+echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
+echo "@includedir /etc/sudoers.d" >> /etc/sudoers
 
 
