@@ -25,9 +25,9 @@ pacman -S grub efibootmgr mtools dosfstools xdg-user-dirs xdg-utils --noconfirm 
 grub-install --target=i386-pc $disk
 grub-mkconfig -o /boot/grub/grub.cfg
 
-useradd -mG wheel,audio,video,optical,tty,network,storage $user
+useradd -mG wheel,audio,video,optical,tty,network,storage $username
 echo "password for user"
-passwd $user
+passwd $username
 
 echo "password for root"
 passwd
