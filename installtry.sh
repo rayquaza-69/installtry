@@ -11,7 +11,7 @@ echo "LANG=en_US.UTF-8" >> /etc/local.conf
 
 ln -sf /usr/share/zoneinfo/Asia/Kolkata /etc/localtime
 hwclock --systohc
-pacman -S ntp
+pacman -S ntp --noconfirm --needed
 systemctl enable --now ntpd
 
 echo "Archbox" >> /etc/hostname
@@ -19,7 +19,7 @@ echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1     localhost" >> /etc/hosts
 echo "127.0.1.1 Archbox@localdomain Archbox" >> /etc/hosts
 
-pacman -S grub efibootmgr mtools dosfstools xdg-user-dirs xdg-utils
+pacman -S grub efibootmgr mtools dosfstools xdg-user-dirs xdg-utils --noconfirm --needed
 
 
 grub-install --target=i386-pc $disk
