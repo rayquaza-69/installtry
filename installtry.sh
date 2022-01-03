@@ -43,7 +43,7 @@ echo "@includedir /etc/sudoers.d" >> /etc/sudoers
 pacman -S sudo --noconfirm
 
 pacman -S fish --noconfirm
-chsh -s /usr/bin/fish $user
+chsh -s /usr/bin/fish $username
 
 
 pacman -S doas --needed --noconfirm
