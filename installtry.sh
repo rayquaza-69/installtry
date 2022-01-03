@@ -36,9 +36,16 @@ passwd $username
 echo "password for root"
 passwd
 
-
 echo "root ALL=(ALL) ALL" > /etc/sudoers
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 echo "@includedir /etc/sudoers.d" >> /etc/sudoers
 
+pacman -S sudo --noconfirm
+
+pacman -S fish --noconfirm
+chsh -s /usr/bin/fish $user
+
+
+pacman -S doas --needed --noconfirm
+echo "permit :wheel" >> /etc/doas.conf
 
